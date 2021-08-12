@@ -19,6 +19,16 @@
 
   <dependencies>
     <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.20</version>
+    </dependency>
+    <dependency>
+      <groupId>io.netty</groupId>
+      <artifactId>netty-all</artifactId>
+      <version>4.1.66.Final</version>
+    </dependency>
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.11</version>
@@ -94,12 +104,12 @@
           </execution>
         </executions>
       </plugin>
-            <plugin>
+      <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.6.0</version>
         <configuration>
-          <mainClass>com.example.App</mainClass>
+          <mainClass>com.github.marwen.App</mainClass>
         </configuration>
       </plugin>
       <plugin>
@@ -109,17 +119,17 @@
         <configuration>
           <programs>
             <program>
-              <mainClass>com.example.App</mainClass>
+              <mainClass>com.github.marwen.App</mainClass>
               <id>client</id>
               <platforms>
                 <platform>unix</platform>
               </platforms>
-              <jvmSettings>
+              <!-- <jvmSettings>
                 <systemProperties>
                   <systemProperty>server.port=443</systemProperty>
                   <systemProperty>server.host="google.com"</systemProperty>
                 </systemProperties>
-              </jvmSettings>
+              </jvmSettings> -->
 
             </program>
           </programs>
