@@ -3,6 +3,7 @@ package com.github.marwen;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
@@ -26,7 +27,7 @@ public class AppClient {
 
     }
 
-    public void start() {
+    public void start() throws InterruptedException{
         log.info("Starting Client");
         EventLoopGroup grp = new NioEventLoopGroup();
         try {
@@ -38,22 +39,19 @@ public class AppClient {
                             ch.pipeline().addLast(new AppClientHandler());
                         }
                     });
+            boot.option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 2000)
+            .option(ChannelOption.SO_KEEPALIVE, true);
             ChannelFuture f = boot.connect().sync();
             f.channel().closeFuture().sync();
-        } catch (InterruptedException e){
+        } catch (InterruptedException e) {
             log.warning(e.getMessage());
             Thread.currentThread().interrupt();
-        } catch (Exception e) {
+        } catch (Exception e){
             log.warning(e.getMessage());
         } finally {
-            try {
-                grp.shutdownGracefully().sync();
-            } catch (Exception e) {
-                log.warning(e.getMessage());
-            }
-
+            grp.shutdownGracefully().sync();
         }
+
     }
 
 }
-
