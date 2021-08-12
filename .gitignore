@@ -21,3 +21,7 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+sancho/.settings/org.eclipse.core.resources.prefs
+sancho/.settings/org.eclipse.jdt.apt.core.prefs
+sancho/.settings/org.eclipse.jdt.core.prefs
+sancho/.settings/org.eclipse.m2e.core.prefs
