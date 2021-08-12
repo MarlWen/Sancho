@@ -104,14 +104,14 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
+      <!-- <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.6.0</version>
-        <configuration>
+        <configuration>`
           <mainClass>com.github.marwen.App</mainClass>
         </configuration>
-      </plugin>
+      </plugin> -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>appassembler-maven-plugin</artifactId>
@@ -126,8 +126,7 @@
               </platforms>
               <!-- <jvmSettings>
                 <systemProperties>
-                  <systemProperty>server.port=443</systemProperty>
-                  <systemProperty>server.host="google.com"</systemProperty>
+                  <systemProperty>java.util.logging.SimpleFormatter.format="[%1$tF %1$tT] [%4$-7s] %5$s %n"</systemProperty>
                 </systemProperties>
               </jvmSettings> -->
 
