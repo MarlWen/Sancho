@@ -100,10 +100,10 @@
             <phase>package</phase>            
             <goals>
               <goal>single</goal>
-            </goals>
+            </g
           </execution>
         </executions>
-      </plugin> -->
+      </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
@@ -111,11 +111,19 @@
         <configuration>`
           <mainClass>com.github.marwen.App</mainClass>
         </configuration>
-      </plugin>
+      </plugin> -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>appassembler-maven-plugin</artifactId>
         <version>1.10</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>assemble</goal>
+            </goals>
+          </execution>
+        </executions>
         <configuration>
           <programs>
             <program>
@@ -126,7 +134,6 @@
               </platforms>
               <!-- <jvmSettings>
                 <systemProperties>
-                  <systemProperty>java.util.logging.SimpleFormatter.format="[%1$tF %1$tT] [%4$-7s] %5$s %n"</systemProperty>
                 </systemProperties>
               </jvmSettings> -->
 

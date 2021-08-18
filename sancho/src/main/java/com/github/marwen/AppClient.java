@@ -39,7 +39,7 @@ public class AppClient {
                             ch.pipeline().addLast(new AppClientHandler());
                         }
                     });
-            boot.option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 2000)
+            boot.option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 3000)
             .option(ChannelOption.SO_KEEPALIVE, true);
             ChannelFuture f = boot.connect().sync();
             f.channel().closeFuture().sync();
